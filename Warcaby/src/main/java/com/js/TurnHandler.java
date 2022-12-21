@@ -10,11 +10,12 @@ import com.js.Tile.Type;
  */
 
 public class TurnHandler {
-    // obecny gracz jest olną płytką o danym kolorze
+    // obecny gracz jest olną płytką o danym kolorze.
     static Tile currPlayer = new Tile(Type.None, Color.White);
     
 
     public static void main(String[] args){
+
         RuleSet ruleset = new OrdinaryRuleSet(3,3,1); // określamy wymiary i liczbę rzędów pionków
 
         while(ruleset.ended() == Color.None){
