@@ -31,6 +31,7 @@ public class OrdinaryRuleSet extends RuleSet{
 
     @Override
     public void confirm(Move move) {
-        board.confirm(move);
+        // board.confirm(move);
+        super.confirm(move);
     }
 }

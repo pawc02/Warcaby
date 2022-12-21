@@ -6,12 +6,16 @@ import java.util.function.Function;
 public class Board {
     int X,Y;
     Tile[][] Tiles;
+    
+    // liczba pionków danego koloru na planszy
+    int whitePawns, blackPawns;
 
     Function<int[],Boolean> inBounds = move -> move[0]>= 0 && move[0] < X && move[1] >= 0 && move[1] < Y;
 
     Board(int X, int Y, int pawnRows){
         this.X = X;
         this.Y = Y;
+
         
         Tiles = new Tile[X][Y];
         
@@ -19,11 +23,13 @@ public class Board {
         for ( int x = 0; x < X; x++ ){
             for ( int y = 0; y < Y; y++){
                 if ( (x+y) % 2 == 0){
-                    if ( y < pawnRows )
+                    if ( y < pawnRows ){
                         Tiles[x][y] = new Tile(Tile.Type.Pawn, Tile.Color.White);
-                    else if ( y >= Y - pawnRows)
+                        this.whitePawns++;
+                    }else if ( y >= Y - pawnRows){
                         Tiles[x][y] = new Tile(Tile.Type.Pawn, Tile.Color.Black);
-                    else
+                        this.blackPawns++;
+                    }else
                         Tiles[x][y] = new Tile(Tile.Type.None, Tile.Color.None);
                 }else
                     Tiles[x][y] = new Tile(Tile.Type.None, Tile.Color.None);
@@ -44,9 +50,14 @@ public class Board {
     }
 
 
-    //proste wyświetlanie planszy
+    //lepsze wyświetlanie planszy
     public void print(){
+        String firstrow = "Y\\X";
+        for ( int x = 0; x < X; x++ ){ firstrow = firstrow.concat(" " + x);}
+        System.out.println(firstrow);
+
         for ( int y = 0; y < Y; y++){
+            System.out.print(y+ "   ");
             for ( int x = 0; x < X; x++ ){
                 switch(Tiles[x][y].color){
                     case White:
