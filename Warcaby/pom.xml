@@ -60,7 +60,7 @@
               <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>com.js.TurnHandler</mainClass>
+                <mainClass>com.js.Server</mainClass>
               </manifest>
             </archive>
           </configuration>

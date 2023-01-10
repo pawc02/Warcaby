@@ -1,6 +1,6 @@
 # Warcaby
 
-Pierwsza wersja programu, mamy konsolową komunikację z corem gry.
+Ulepszony core gry, dodane 3 tryby
 
 
 mvn package

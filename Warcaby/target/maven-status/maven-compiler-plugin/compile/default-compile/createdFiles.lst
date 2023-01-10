@@ -1,2 +1,15 @@
-com\js\Board$1.class
-com\js\OrdinaryRuleSet$1.class
+com/js/Tile$Type.class
+com/js/Board.class
+com/js/MultiMoveSet.class
+com/js/EnglishCheckers.class
+com/js/ThaiCheckers$1.class
+com/js/PolishCheckers$1.class
+com/js/SingleMoveSet.class
+com/js/EnglishCheckers$1.class
+com/js/ThaiCheckers.class
+com/js/Tile$Color.class
+com/js/Tile.class
+com/js/Move.class
+com/js/RuleSet.class
+com/js/PolishCheckers.class
+com/js/Board$1.class

@@ -1,35 +1,57 @@
-package com.js;
+package com.js; //done
 
-public class Tile{
+import java.io.Serializable;
+
+/**
+ * Jeden kafelek planszy
+ */
+public class Tile implements Serializable{
+    /**
+     * Typ Kafelka
+     */
     public enum Type{
         Pawn, Queen, None;
     }
-
+    /**
+     * Kolor kafelka
+     */
     public enum Color{
         Black, White, None;
     }
 
-    Type type;
-    Color color;
-
+    public Type type;
+    public Color color;
+    /**
+     * Tworzy nowy kafelek
+     * @param type typ
+     * @param color kolor
+     */
     public Tile(Type type, Color color){
         this.type = type;
         this.color = color;
     }
-
-    void capture(){ // zbicie
+    /**
+     * Zbija dany kafelek
+     */
+    public void capture(){
         type = Type.None;
         color = Color.None;
     }
-
-    Tile.Color enemy(){ // zwraca wrogi kolor
+    /**
+     * Zwraca kolor wroga
+     * @return kolor wroga
+     */
+    public Tile.Color enemy(){
         if (color == Color.Black)
             return Color.White;
         else
             return Color.Black;
     }
     
-    void rankUp(){ // awans
+    /**
+     * Awans
+     */
+    public void rankUp(){
         if (type == Type.Pawn)
             type = Type.Queen;
     }
