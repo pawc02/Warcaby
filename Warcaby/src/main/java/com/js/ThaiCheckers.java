@@ -31,7 +31,7 @@ public class ThaiCheckers extends RuleSet{
                     switch(board.Tiles[i][j].type){
                         case Pawn:
                             backwardsMove = false;
-                            backwardsCap = false;
+                            backwardsCap = true;
                             infinite = false;
                             break;
                         case Queen:
@@ -51,7 +51,7 @@ public class ThaiCheckers extends RuleSet{
         switch(board.Tiles[x][y].type){
             case Pawn:
                 backwardsMove = false;
-                backwardsCap = false;
+                backwardsCap = true;
                 infinite = false;
                 break;
             case Queen:

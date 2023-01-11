@@ -40,7 +40,7 @@ public class Game implements Runnable{
                 ruleset = new EnglishCheckers();
                 break;
             default: // Polskie
-                ruleset = new ThaiCheckers();
+                ruleset = new PolishCheckers();
 
         }
     }
@@ -50,7 +50,6 @@ public class Game implements Runnable{
     @Override
     public void run() {
         try{
-            System.out.println("Działam3");
             //Inicjalizacja Wysylania do socketa dla player1
             OutputStream outputF = firstPlayer.getOutputStream();
             ObjectOutputStream outF = new ObjectOutputStream(outputF);

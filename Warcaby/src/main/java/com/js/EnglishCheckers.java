@@ -37,7 +37,7 @@ public class EnglishCheckers extends RuleSet{
                         case Queen:
                             backwardsMove = true;
                             backwardsCap = true;
-                            infinite = true;
+                            infinite = false;
                             break;
                         case None:
                             return moves;
@@ -57,7 +57,7 @@ public class EnglishCheckers extends RuleSet{
             case Queen:
                 backwardsMove = true;
                 backwardsCap = true;
-                infinite = true;
+                infinite = false;
                 break;
             case None:
                 return moves;
