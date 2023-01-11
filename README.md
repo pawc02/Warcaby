@@ -2,6 +2,7 @@
 
 Ulepszony core gry, dodane 3 tryby
 
+Dodanie funkcjonalności klient-serwer
 
 mvn package
 
