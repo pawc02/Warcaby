@@ -35,7 +35,7 @@ public class GameTest
         RuleSet ruleset = new PolishCheckers();
         Tile player = new Tile(null,Color.White);
         while(ruleset.ended() == Color.None){
-            // System.out.println(ruleset.board);
+            System.out.println(ruleset.board);
             List<int[]> poss = new ArrayList<int[]>();
             for(int i=0;i<Board.X; i++)
             for(int j=0;j<Board.Y; j++){
@@ -56,7 +56,7 @@ public class GameTest
 
             player.color = player.enemy();
         }
-        // System.out.println(ruleset.board);
+        System.out.println(ruleset.board);
         
         assertTrue( ruleset.board.whitePawns == 0 || ruleset.board.blackPawns == 0 );
     }

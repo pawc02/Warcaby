@@ -9,13 +9,23 @@ import java.net.*;
 public class Server {
 
     public static void main(String[] args) {
+        int mode, type;
+
+        System.out.println("Wybierz tryb \n1 - Gra z graczem\n2 - Gra z komputerem");
+        try{
+            type = Integer.parseInt(System.console().readLine());
+        }catch(NumberFormatException ex){
+            type = 2;
+        }
+        
         System.out.println("Wybierz rodzaj gry \n1 - Polskie\n2 - Tajskie\n3 - Angielskie");
-        int mode;
+        
         try{
             mode = Integer.parseInt(System.console().readLine());
         }catch(NumberFormatException ex){
             mode = 1;
         }
+        
 
         try (ServerSocket serverSocket = new ServerSocket(4444)) {
 
@@ -24,14 +34,20 @@ public class Server {
             while (true) {
                 Socket firstClient = serverSocket.accept();
                 System.out.println("First client connected");
-                System.out.println("Waiting for the second player");
+                Runnable g;
+                if(type == 2){
+                    g = new SoloGame(firstClient, mode);
+                }else{
+                    System.out.println("Waiting for the second player");
 
-                Socket secondClient = serverSocket.accept();
-                System.out.println("Second client connected");
+                    Socket secondClient = serverSocket.accept();
+                    System.out.println("Second client connected");
 
-                Game g = new Game(firstClient, secondClient, mode);
+                    g = new Game(firstClient, secondClient, mode);
+                }
+
                 Thread gTh = new Thread(g);
-                gTh.start();
+                gTh.start();                
             }
 
         } catch (IOException ex) {
